@@ -711,12 +711,18 @@
         })
       });
 
-      if(res.ok){
-        status.style.color = 'var(--gold-soft)';
-        status.innerText = c.sentOk;
-        document.getElementById('guest-name').value='';
-        document.getElementById('guest-wish').value='';
-      } else {
+      
+if(res.ok){
+document.body.innerHTML=`
+<div style="min-height:100vh;display:flex;justify-content:center;align-items:center;background:var(--cream);padding:20px;">
+<div style="text-align:center">
+<h1 style="font-family:'Aref Ruqaa',serif;color:var(--gold-soft);font-size:56px;">تم استلام ردكم، شكرًا لكم!</h1>
+<p style="font-family:'Aref Ruqaa',serif;color:var(--ink);font-size:38px;line-height:2;">
+شكراً لحضوركم<br>والعاقبة عندكم في المسرات
+</p></div></div>`;
+return;
+} else {
+
         throw new Error('bad response');
       }
     } catch(err){
